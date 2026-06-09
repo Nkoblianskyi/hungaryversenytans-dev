@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-cormorant);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, monospace;
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  /* Deep midnight navy as the primary atmospheric color */
+  --background: oklch(0.10 0.015 265);
+  --foreground: oklch(0.92 0.012 75);
+
+  --card: oklch(0.14 0.015 265);
+  --card-foreground: oklch(0.92 0.012 75);
+
+  --popover: oklch(0.12 0.015 265);
+  --popover-foreground: oklch(0.92 0.012 75);
+
+  /* Gold/champagne as primary accent */
+  --primary: oklch(0.78 0.11 78);
+  --primary-foreground: oklch(0.10 0.015 265);
+
+  --secondary: oklch(0.18 0.018 265);
+  --secondary-foreground: oklch(0.88 0.012 75);
+
+  --muted: oklch(0.16 0.015 265);
+  --muted-foreground: oklch(0.60 0.018 75);
+
+  --accent: oklch(0.78 0.11 78);
+  --accent-foreground: oklch(0.10 0.015 265);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.25 0.018 265);
+  --input: oklch(0.18 0.018 265);
+  --ring: oklch(0.78 0.11 78);
+
+  --radius: 0.125rem;
+
+  --sidebar: oklch(0.12 0.015 265);
+  --sidebar-foreground: oklch(0.92 0.012 75);
+  --sidebar-primary: oklch(0.78 0.11 78);
+  --sidebar-primary-foreground: oklch(0.10 0.015 265);
+  --sidebar-accent: oklch(0.18 0.018 265);
+  --sidebar-accent-foreground: oklch(0.88 0.012 75);
+  --sidebar-border: oklch(0.25 0.018 265);
+  --sidebar-ring: oklch(0.78 0.11 78);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans bg-background;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Slim scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.10 0.015 265);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.40 0.04 265);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.78 0.11 78);
+}
